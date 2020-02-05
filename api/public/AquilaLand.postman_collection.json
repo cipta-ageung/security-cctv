@@ -1,0 +1,1275 @@
+{
+	"info": {
+		"_postman_id": "7a6dfae2-5a74-47f2-8075-7fd6365eff85",
+		"name": "AquilaLand",
+		"description": "Aquila Land Web Services Documentation: BaseURL http://api.aquilaland.id",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "v1/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "fikrirezaa@gmail.com",
+									"description": "email format validation",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "WelcomeAquila",
+									"description": "min password 8 ",
+									"type": "text"
+								},
+								{
+									"key": "device_id",
+									"value": "fBD0VVzwEXg:APA91bEmhHw_-AHNO2XXqZ_YnMxqsMTBLCQa6BYFkfAwaW8Iu-vn7xw4htSAXkR7nI_GqD4QfSuc7PJuY1ETAfOes3nNZ_R6zNPHatTJDBzs7o_1S8j4Mj05DJfjKwO5wsH5W5cl3Hdf",
+									"description": "device_id saat belum login lempar ke sini",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/auth/login",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Jika login sukses, update deviceId untuk PushNotifikasi. Endpoint dibagian Profile\n\nJika description = pengguna baru; arahkan ke halaman ganti password. EndPoint dibagian Profile\n\nUrl Image : api.aquilaland.id/penghuni/images/{gambar}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produk",
+			"item": [
+				{
+					"name": "v1/product/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/product/list",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/product/detail/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/product/detail/2",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"detail",
+								"2"
+							]
+						},
+						"description": "File path image\nBrosur 1: http://api.aquilaland.id/produk/images/{brosur_1}\nBrosur 2: http://api.aquilaland.id/produk/images/{brosur_2}\nBrosur 3: http://api.aquilaland.id/produk/images/{brosur_3}\nMaster Plan: Brosur 1: http://api.aquilaland.id/produk/images/{master_plan}\nFacilities: http://api.aquilaland.id/produk/images/{image}\nHouse Type: http://api.aquilaland.id/produk/images/{image}"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/product/aboutApps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/product/aboutApps",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"aboutApps"
+							]
+						},
+						"description": "Image path sama dengan product"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9wcm9maWxlXC91cGRhdGUiLCJpYXQiOjE1NzQyNTk4MjYsImV4cCI6MTU3NDI2NTE3MSwibmJmIjoxNTc0MjYxNTcxLCJqdGkiOiJsTUhpM0NYVEJHV0trVkl1Iiwic3ViIjoxMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.WP8HInzwDoBYIWCxLdM0yO0FguhDDJyu6zVCU41wqiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/profile",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"profile"
+							]
+						},
+						"description": "Response with refresh token\n\nFile Path Avatar sama dengan Login\n\nJika device_id = null, maka hit endpoint /profile/fcm untuk post fcm token"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/profile/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9wcm9maWxlIiwiaWF0IjoxNTc0MjU5ODI2LCJleHAiOjE1NzQyNjUxODUsIm5iZiI6MTU3NDI2MTU4NSwianRpIjoiTDlqWWVyc0I4TURhSEZZbiIsInN1YiI6MTIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.i7w_u2-6AUsrDIRS7eQbTauYOGV_6qU_thD-EIQqaoo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "nama_kk",
+									"value": "Fikri Reza",
+									"type": "text"
+								},
+								{
+									"key": "no_hp",
+									"value": "087878246924",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/profile/update",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"update"
+							]
+						},
+						"description": "Update profile hanya bisa avatar, nama, dan no hp"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/profile/gantiPassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuYXF1aWxhbGFuZC5pZFwvdjFcL3Byb2ZpbGUiLCJpYXQiOjE1Njg2NDM1MjEsImV4cCI6MTU2ODY0NzE3MiwibmJmIjoxNTY4NjQzNTcyLCJqdGkiOiJtdEx5SFB1UFY0eXpmeXV1Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.0nNcWfms94oJzXv6ZBhYlu2hK7WAzJfEveOVo2e4Oyc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "oldPassword",
+									"value": "WelcomeAquila",
+									"description": "password lama",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"description": "min 8",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "12345678",
+									"description": "harus sama dengan 'password'",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/profile/gantiPassword",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"gantiPassword"
+							]
+						},
+						"description": "Response with refresh token"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/profile/logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MjQ1MjUyNSwiZXhwIjoxNTcyNDU2MTI1LCJuYmYiOjE1NzI0NTI1MjUsImp0aSI6ImZNaUdwMWNGU3h4ajBsNEYiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OylJN2QcY11aMzB7Y3lduFa-uDMqtV9V8AjkugDz0RM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/profile/logout",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"profile",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk5NjkwZDYyNmFiOTc4YWQyYTA5YWJlMDY1OWUwYTY5YjExNjVkNzdiM2JjMTE2MzdjZTg1ZmE1MDNjZjRiOWEwMDAwMDQ4ZmU5NDFjMDk2In0.eyJhdWQiOiI3IiwianRpIjoiOTk2OTBkNjI2YWI5NzhhZDJhMDlhYmUwNjU5ZTBhNjliMTE2NWQ3N2IzYmMxMTYzN2NlODVmYTUwM2NmNGI5YTAwMDAwNDhmZTk0MWMwOTYiLCJpYXQiOjE1NDg5OTI5OTcsIm5iZiI6MTU0ODk5Mjk5NywiZXhwIjoxNTgwNTI4OTk3LCJzdWIiOiIxODA4OCIsInNjb3BlcyI6WyJ1c2VycyJdfQ.qv3q1R28fnVOmxYe3mKKetcZuYFtMg_wO0vCcQnqxRZWbPJFdH5GWO_26mylCabt03SfIcHwQIWma1kiUJKra44zBPyYkKduNCLS4oQtb7acWtD-MTx51l-KcaYGQwtW1d-Efe6U7CDIakzOkxUpzBAlxIYKdT3bouNX__s95uCaDPQub5yi9wIfEtwzMTFbsVPbB_vrY90fx7PNaovLFNcvt9j2JBz6-Hn5Uh8rXRREBsgKSuOV-XDgSOYmexwAlXvIUZyY0y5t--lf-DjqFv1wcIhJ7mtPZIAxc2S_pPhtxL3QAzZL0peBR8GmCj6pPYnddVi_7DUNnZTNpFTOfcAYdELs-zvVVS6e7B-1aVp93_n0a3sqEAtGDXtVrZzPofDOtDbtQ_6NWHL4m3w2HU7HrYvwnFBSBkt3l-lSRGWATxleuGEA-vWmRY8w4FO-6TUO4SzCMZT25BF0z4hHBOArAvR4pBryUEQdJte19fK-qGFkVSphesduhrLuDVnputHllF1s-pM9swsqYDNgElH9fBkKFODUw5UmMfjwB2VyKbXXkcu01uBLh6VijuKPwIgW6nzz_nU-tRD8G06QGWG4gkTtpMc1jzhPoR0_x_uct7YGuCZXxhA9bdTR-8zsOMeWMVMRnngfgm6U9Mwafozn_pVjEpcHqH7A5rCiKRQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a9d9c3bc-8076-4979-8a7d-f450fec9c2c9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "48efb3ec-7dbf-4d07-8a89-427df7629440",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Berita",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/berita/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/berita/list",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"berita",
+								"list"
+							]
+						},
+						"description": "List Berita\n\nUrl Image : api.aquilaland.id/berita/images/{gambar}"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/berita/detail/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/berita/detail/4",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"berita",
+								"detail",
+								"4"
+							]
+						},
+						"description": "Detail berita\n\nUrl image: api.aquilaland.id/berita/images/{gambar}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FasUm/Kontak",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/fasum/list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9mYXN1bSIsImlhdCI6MTU3MTc5Mjc0NywiZXhwIjoxNTcxNzk2NTM1LCJuYmYiOjE1NzE3OTI5MzUsImp0aSI6InFnbWE2Rzllbmhaa2g5ZEMiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.5NbEEwFkNFC-RZ5Tdt9H95KTkJlP22xbNfAaYnFYiZE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/fasum",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"fasum"
+							]
+						},
+						"description": "Gambar => api.aquilaland.id/kontak/images/{gambar}\n\nResponse with refresh token"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9fc8d39c-929b-4de7-a540-28f6f5c1f6f4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2cc6f6e-2158-4b17-82df-244087b74a16",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cctv",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/cctv",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MTY2Mjc1NSwiZXhwIjoxNTcxNjY2MzU1LCJuYmYiOjE1NzE2NjI3NTUsImp0aSI6Imd0UUZ5SEhuenNGcVBxUngiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.k75vQ2Dqud5PAHbUzzcF7Impa4dcGfoFYZ-9WQu2PeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/cctv",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"cctv"
+							]
+						},
+						"description": "Response with refresh token"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e118b84a-d941-4a2a-a92b-11e2f335a581",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "71904b7d-9ae4-409a-aa7d-d881aa0e20d5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inbox",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/inbox",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9wcm9maWxlIiwiaWF0IjoxNTcxNjYyNzU1LCJleHAiOjE1NzE2NjY0MjMsIm5iZiI6MTU3MTY2MjgyMywianRpIjoianFXWXFRV1FmQlFRenA1YSIsInN1YiI6MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xjkOzw6e8zEQHM__nCwERUWlDhtdssjrbIL8J8_-G5Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/inbox",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"inbox"
+							]
+						},
+						"description": "Jumlah Inbox (unread)"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/inbox/ipl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9jY3R2IiwiaWF0IjoxNTY4NzY1Mjc2LCJleHAiOjE1Njg3Njg5NTcsIm5iZiI6MTU2ODc2NTM1NywianRpIjoiUkFkWFJNVTFmbGZHekROTiIsInN1YiI6MTIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.0_j7fSqCRX7YKb9F261ybserz-QOqAYkI7r3dlIpYSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/inbox/ipl",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"inbox",
+								"ipl"
+							]
+						},
+						"description": "Inbox IPL\nResponse with refresh token\n\n\nPayload Data FCM\n'month' => 'Bulan',\n'nominal' => 'Rupiah',  \n'flag' => 'inboxIpl',  "
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/inbox/cicilan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9pbmJveFwvaXBsIiwiaWF0IjoxNTY4NzY1Mjc2LCJleHAiOjE1Njg3NjkwODcsIm5iZiI6MTU2ODc2NTQ4NywianRpIjoiSmZrM2V4cDBiWnJDT3dMUSIsInN1YiI6MTIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.usrF-cP1BGRaBZFSuCPGKBofxPueg1tVau_4hyXgFFI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/inbox/cicilan",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"inbox",
+								"cicilan"
+							]
+						},
+						"description": "Inbox Installment(cicilan)\nResponse with refresh token\n\n\nPayload Data FCM\n'month' => 'Bulan',\n'nominal' => 'Rupiah',                    \n'nama' => 'Nama Penghuni',\n'flag' => 'inboxCicilan',"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4d9bc8ed-c30a-48cb-86a3-7ab9b4fc26ee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f218a8a9-b087-401d-b29c-f333a17fe47f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PanicButton",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/panic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MjAyMjc2MSwiZXhwIjoxNTcyMDI2MzYxLCJuYmYiOjE1NzIwMjI3NjEsImp0aSI6InRDYlB2ZFlHQVBVT3Q4eXciLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oiTosqopWG_AbjPQd41qSA_w032KO5DHQNVnVKXdGnA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "datetime",
+									"value": "2019-10-24 07:55:21",
+									"description": "datetime yyyy-mm-dd hh:mm:ss",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/panic",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"panic"
+							]
+						},
+						"description": "Ada kondisi dimana security tidak ada, response code 200\n\nPayload Data\n'nama_penghuni' => 'Nama Penghuni',\n'no_rumah' => 'Nomor Rumah',\n'flag' => 'panic',                 \n]"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/panic/popUp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzE3MTQ0MCwiZXhwIjoxNTczMTc1MDQxLCJuYmYiOjE1NzMxNzE0NDEsImp0aSI6IkRGNWtTWGNHVkZBdVVFa3kiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WzjECNdRa967r7rCRNbp_krVuzlEYjAZR-pmU0yg_aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "datetime",
+									"value": "2019-11-08 07:55:21",
+									"description": "datetime yyyy-mm-dd hh:mm:ss",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/panic/popUp",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"panic",
+								"popUp"
+							]
+						},
+						"description": "Ada kondisi dimana security tidak ada, response code 200\n\nPayload Data\n'nama_penghuni' => 'Nama Penghuni',\n'no_rumah' => 'Nomor Rumah',\n'flag' => 'panic',                 \n]"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9feda04d-b312-4a77-84b8-4da6373f313b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b6a703c-2e63-4484-9c27-d84aa7382bd5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Forum Jualan",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/jualan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan"
+							]
+						},
+						"description": "Refresh token\n\nUrl Image : api.aquilaland.id/jualan/images/{gambar}"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/jualan/produk-saya",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9qdWFsYW5cL3Byb2R1ay1zYXlhIiwiaWF0IjoxNTY4NzI5Mjc2LCJleHAiOjE1Njg3MzU5MjEsIm5iZiI6MTU2ODczMjMyMSwianRpIjoibzNYdlhkaG1vcjJha1B3RyIsInN1YiI6MTIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.aYfwJs-kyS2tLX2rFFQyqf7X-TkF2G67nthXj68S6e4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan/produk-saya",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan",
+								"produk-saya"
+							]
+						},
+						"description": "Refresh token\n\nUrl Image : api.aquilaland.id/jualan/images/{gambar}"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/jualan/posting",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9qdWFsYW5cL3Byb2R1ay1zYXlhIiwiaWF0IjoxNTY4NzI5Mjc2LCJleHAiOjE1Njg3MzQ2NzYsIm5iZiI6MTU2ODczMTA3NiwianRpIjoiTFRXVm1KOEp5c2RzY2N4ayIsInN1YiI6MTIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.q1-gYQYubOFQ0X-VXy4tKkdDaPafUWw3Ofzmz1heRaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Galon",
+									"description": "min 3",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Galon Aqua, Vit, Total",
+									"description": "min 3",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "15000",
+									"description": "numeric",
+									"type": "text"
+								},
+								{
+									"key": "no_hp",
+									"value": "087878246924",
+									"description": "numeric min 10",
+									"type": "text"
+								},
+								{
+									"key": "gambar_1",
+									"description": "mimes:jpeg,png,jpg, max:2000, dimensions:max_width=5000,max_height=5000",
+									"type": "file",
+									"src": "/D:/l6.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan/posting",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan",
+								"posting"
+							]
+						},
+						"description": "Refresh token"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/jualan/detail/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MjA3OTUzNiwiZXhwIjoxNTcyMDgzMTM2LCJuYmYiOjE1NzIwNzk1MzYsImp0aSI6ImVCWENOcWxDTHRxSFVBOVQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.cwow37f_AFM1QHMUVXX0imTwXD47pFH1u656y7gnw0c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan/detail/28",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan",
+								"detail",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/jualan/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9qdWFsYW5cL2RlbGV0ZSIsImlhdCI6MTU3MjAwODM5NSwiZXhwIjoxNTcyMDEyMDE2LCJuYmYiOjE1NzIwMDg0MTYsImp0aSI6IjNPVVRLYURub2ZZcDhPekEiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.hxYQwpkFf2fMcuZ06XCSjVhvszNSVgatZd7quyXm-d0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "occupant_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "judul",
+									"value": "Galons",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Aqua Galon",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "14500",
+									"type": "text"
+								},
+								{
+									"key": "no_hp",
+									"value": "087878246924",
+									"type": "text"
+								},
+								{
+									"key": "gambar_1",
+									"type": "file",
+									"src": "/D:/galon.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan/update",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/jualan/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MjAxMTk1OCwiZXhwIjoxNTcyMDE1NTU4LCJuYmYiOjE1NzIwMTE5NTgsImp0aSI6IjlHZDA4Y2MwRUM4SVdJaHMiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.CRN-LjkFeO9kNHgUDTvHoq7WLXqkCWdyzwuBSPVPyg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/jualan/delete",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"jualan",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FxdWlsYVwvYXBpXC9wdWJsaWNcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU2ODcyOTI3NiwiZXhwIjoxNTY4NzMyODc2LCJuYmYiOjE1Njg3MjkyNzYsImp0aSI6IkxMcUo5ZmRWelhFaGNMTWQiLCJzdWIiOjEyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5X4AYFB3y3-tuE6mwQV5F44PBJtHpt13hZdEN4VRQGE",
+						"type": "string"
+					}
+				]
+			},
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/fcm",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "device_id",
+									"value": "dUjKVVzwEXg:APA91bEmhHw_-AHNO2XXqZ_YnMxqsMTBsdfert454tertertvn7xw4htSAXkR7nI_GqD4QfSuc7PJuY1ETAfOes3nNZ_R6zNPHatTJDBzs7o_1S8j4Mj05DJfjKwO5wsH5W5cl3Hdf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/fcm",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"fcm"
+							]
+						},
+						"description": "Post device_id untuk pengguna yang belum login"
+					},
+					"response": []
+				}
+			],
+			"description": "Device id",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Testing",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/testing/berita",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Ini judul testing",
+									"description": "Judul berita",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Acara",
+									"description": "Kategori berita, Berita; Promo; Kegiatan",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "random",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"value": "berita",
+									"description": "berita",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/testing/berita",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"testing",
+								"berita"
+							]
+						},
+						"description": "Berita akan terkirim ke user yang login maupun tidak.\n\nData yang akan dikirim payload sesuai dengan form-data\n\nPayload Data FCM\n'judul' => \"Judul Berita\",\n'kategori' => \"Kategori\",\n'id'    => 'Id Berita',\n'flag'  => 'berita',"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/testing/beritaTopics",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Ini judul testing",
+									"description": "Judul berita",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Acara",
+									"description": "Kategori berita, Berita; Promo; Kegiatan",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "random",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"value": "berita",
+									"description": "berita",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{devaquila}}/v1/testing/beritaTopics",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"testing",
+								"beritaTopics"
+							]
+						},
+						"description": "Berita akan terkirim ke user yang login maupun tidak.\n\nData yang akan dikirim payload sesuai dengan form-data\n\nPayload Data FCM\n'judul' => \"Judul Berita\",\n'kategori' => \"Kategori\",\n'id'    => 'Id Berita',\n'flag'  => 'berita',"
+					},
+					"response": []
+				},
+				{
+					"name": "{{devaquila}}/v1/testing/checkInbox",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/testing/checkInbox",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"testing",
+								"checkInbox"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0e810f9b-169f-4f9c-b1d9-88c75801fd50",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "add08bf4-05c4-430b-9c34-0593dcb1202a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Security Schedule",
+			"item": [
+				{
+					"name": "{{devaquila}}/v1/security",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLmFxdWlsYWxhbmQuaWRcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MTgzNjk1MSwiZXhwIjoxNTcxODQwNTUxLCJuYmYiOjE1NzE4MzY5NTEsImp0aSI6ImVSUUtvZ1hYVXlRaTZrTUwiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.nXFqletasiwTNopywqkQJHS9r88Zs_k38DNcIdjXOjA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{devaquila}}/v1/security",
+							"host": [
+								"{{devaquila}}"
+							],
+							"path": [
+								"v1",
+								"security"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9277726c-5840-42e1-831e-19ed3fe8cdc7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7514935b-f60c-48a8-a162-a46da75bebcb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

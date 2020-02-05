@@ -1,0 +1,20 @@
+<Files .env>
+  Order allow,deny
+    Deny from all
+</Files>
+<Files composer.json>
+  Order allow,deny
+    Deny from all
+</Files>
+<Files artisan>
+  Order allow,deny
+    Deny from all
+</Files>
+<Files .gitignore>
+  Order allow,deny
+    Deny from all
+</Files>
+<Files .composer.lock>
+  Order allow,deny
+    Deny from all
+</Files>
